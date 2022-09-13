@@ -1,6 +1,6 @@
 ---
 - hosts: dev
-  become: yes
+  become: True
   tasks:
 
     - name: pull docker image from dockerhub
