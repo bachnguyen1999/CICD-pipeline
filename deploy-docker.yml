@@ -2,11 +2,6 @@
 - hosts: dev
   become: True
   tasks:
-    - name: start docker
-      service:
-        name: docker
-        state: started
-        enabled: yes
     - name: start the container
       docker_container:
         name: image
