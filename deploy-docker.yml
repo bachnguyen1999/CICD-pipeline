@@ -7,7 +7,7 @@
         name: docker
         state: started
         enabled: yes
-    - name: Start the container
+    - name: start the container
       docker_container:
         name: image
         image: "bachnguyen18/image:{{DOCKER_TAG}}"
