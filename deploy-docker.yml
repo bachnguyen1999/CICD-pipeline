@@ -2,10 +2,10 @@
 - hosts: dev
   become: True
   tasks:
-    - name: start the container
-      docker_container:
-        name: image
-        image: "bachnguyen18/image:{{DOCKER_TAG}}"
-        state: started
-        ports:
-          - "8080:80"
+
+    - name: pull docker image from dockerhub
+      command: docker pull bachnguyen18/image:latest
+
+    - name: creating docker container using image
+      command: docker run -d --name container -p 8080:8080 bachnguyen18/image:latest
+
