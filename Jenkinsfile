@@ -23,7 +23,7 @@ pipeline{
         
         stage('Docker Build'){
             when{
-                 expression { GITBRANCH == "dev" }
+                 expression { GITBRANCH == "master" }
             }
             steps{
                 sh "docker build . -t bachnguyen18/image:${DOCKER_TAG} "
