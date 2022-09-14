@@ -5,14 +5,10 @@ pipeline{
     }
     environment {
       DOCKER_TAG = getVersion()
-      GITBRANCH = "${GIT_BRANCH.tokenize('/').pop()}"
     }
     stages{
         stage('SCM'){
             steps{
-            when{
-                 expression { GITBRANCH == "dev" }
-            }
                 git credentialsId: 'github', 
                     url: 'https://github.com/bachnguyen1999/CICD-pipeline.git'
             }
