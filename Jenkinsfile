@@ -9,7 +9,6 @@ pipeline{
     }
     stages{
         stage('SCM'){
-            }
             steps{
                 git credentialsId: 'github', 
                     url: 'https://github.com/bachnguyen1999/CICD-pipeline.git'
