@@ -5,7 +5,6 @@ pipeline{
     }
     environment {
       DOCKER_TAG = getVersion()
-      GITBRANCH = "${GIT_BRANCH.tokenize('/').pop()}"
     }
     stages{
         stage('SCM'){
@@ -22,9 +21,6 @@ pipeline{
         }
         
         stage('Docker Build'){
-            when{
-                 expression { GITBRANCH == "master" }
-            }
             steps{
                 sh "docker build . -t bachnguyen18/image:${DOCKER_TAG} "
             }
